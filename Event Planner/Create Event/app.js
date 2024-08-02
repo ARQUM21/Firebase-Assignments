@@ -10,7 +10,7 @@ import {
 } from '../utils/utils.js';
 console.log("auth=>",auth);
 
-const event_form = document.getElementById("event_form");
+const event_form = document.getElementById("event_form" );
 
 event_form.addEventListener('submit', (e) =>{
     e.preventDefault();

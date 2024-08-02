@@ -84,7 +84,7 @@ async function displayAllEvents(uid) {
 displayAllEvents(localStorage.getItem('eventId'));
 
 
-      backevent.addEventListener('click', function(e){
+      backevent.addEventListener('click', function(e) {
         e.preventDefault(); 
         window.location.href = "../utils/index.html";
       });

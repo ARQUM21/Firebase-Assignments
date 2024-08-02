@@ -134,11 +134,11 @@ async function likeEvent(e){
 
 window.viewEvent = viewEvent;
 console.log("Event_details_form=>", Event_details_form);
-async function viewEvent(e) {
+async function viewEvent(e){
   console.log("Current User:", auth.currentUser); // Check the current user
 
   // Check if user is authenticated
-  if (auth.currentUser) {
+  if (auth.currentUser){
     e.disabled = true; // Disable the button to prevent multiple clicks
 
     const eventId = e.id; // Get the event ID from the clicked element

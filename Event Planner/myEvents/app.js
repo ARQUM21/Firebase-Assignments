@@ -87,7 +87,7 @@ querySnapshot.forEach((doc) => {
 
   
 
-async function deleteEvent(e){
+async function deleteEvent(e) {
   console.log(e);
 
   const docRef = doc(db, 'events', e.id);
