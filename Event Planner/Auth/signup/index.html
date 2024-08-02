@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="style.css" > 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+
+
+  <div class="container">
+
+    <div class="forms">
+
+      <div id="signup_form"   class="form login" id="login_form">
+        <span class="title">Create Account</span>
+
+          <form action="#">
+            <div class="div_img">
+             
+             
+              <label for="profile_img" class="custom-file-upload">
+                  <img class="img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar">
+                  <input class="file" type="file" id="profile_img" required/>
+              </label>
+            
+          </div>
+            <!-- <div class="div_img">
+              <label for="profile_img" class="file-label">
+                  <img class="img" id="preview" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bordered avatar">
+              </label>
+              <input class="file" type="file" id="profile_img" accept="image/*" required onchange="previewImage(event)">
+          </div> -->
+            
+            <!-- <div class="div_img">
+              <img class="img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bordered avatar">
+              <input class="file" type="file" id="profile_img"  required >
+            </div> -->
+
+            <div class="input-field">
+              <input type="text" name="floating_name" id="floating_name"  placeholder="Full Name" required>
+              <i class="fa-solid fa-user icon"></i>
+            </div>
+
+            <div class="input-field">
+              <input type="text"  name="floating_email" id="email" placeholder="Enter your email" required>
+              <i class="fa-solid fa-envelope icon"></i>
+            </div>
+
+            <div class="input-field">
+              <input type="password" id="password"   name="floating_password" placeholder="Enter your password" required>
+              <i class="fa-solid fa-lock icon"></i>
+            </div>
+         
+            <div class="input-field">
+              <input type="text"  name="floating_phone" id="floating_phone"  placeholder="Phone" required />
+              <i class="fa-solid fa-phone  icon"></i>
+            </div>
+
+            <div class="input-field" >
+              <input type="text" name="floating_company" id="floating_company"  placeholder="Company" required />
+              <i class="fa-solid fa-building icon"></i>
+            </div>
+
+            <button id="submit_btn"  class="submit" type="submit" >Create Account</button>
+          </form>
+
+          <div class="login-signup">
+            <span class="text">Not a member?<a href="../login/index.html" class="text signup-link">login now</a></span>
+          </div>
+          
+      </div>
+    </div>
+  </div>
+
+  
+        <script  src="app.js"  type="module"></script>  
+</body>
+</html>
