@@ -1,4 +1,4 @@
-import{ auth, storage, db, signOut,onAuthStateChanged, getDoc, doc, getDocs,collection, updateDoc, arrayUnion, arrayRemove,} from "../utils/utils.js";
+import{ auth, storage, db, signOut,onAuthStateChanged, getDoc, doc, getDocs,collection, updateDoc, arrayUnion, arrayRemove,} from "./utils/utils.js";
 
 
 
@@ -16,6 +16,8 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/auth.user
+      console.log('logged in');
+      
       const uid = user.uid;
       login_link.style.display = 'none';
       user_img.style.display = 'inline-block';
@@ -133,7 +135,7 @@ async function likeEvent(e){
 }  
 
 window.viewEvent = viewEvent;
-console.log("Event_details_form=>", Event_details_form);
+// console.log("Event_details_form=>", Event_details_form);
 async function viewEvent(e){
   console.log("Current User:", auth.currentUser); // Check the current user
 

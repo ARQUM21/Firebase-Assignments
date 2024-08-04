@@ -17,7 +17,7 @@ login_form.addEventListener('submit', function(e){
     console.log("password", password )
 
     signInWithEmailAndPassword(auth, email, password).then(() => {
-        window.location.href='../../utils/index.html'
+        location.href='../../index.html';
     }).catch((err) => alert(err));
 
 });
