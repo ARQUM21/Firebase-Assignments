@@ -151,11 +151,11 @@ async function viewEvent(e){
     localStorage.setItem('eventId', eventId);
 
     // Redirect to the event page
-    window.location.href = "../view Event/index.html"; 
+    window.location.href = "../event-planner/view Event/index.html"; 
   } else {
     // If not authenticated, redirect to the login page
     console.log("User not authenticated. Redirecting to login."); // Debug log
-    window.location.href = "../auth/login/index.html";
+    window.location.href = "../event-planner/Auth/login/index.html";
   }
 }
 
