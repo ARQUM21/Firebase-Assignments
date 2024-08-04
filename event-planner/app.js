@@ -1,6 +1,6 @@
 import{ auth, storage, db, signOut,onAuthStateChanged, getDoc, doc, getDocs,collection, updateDoc, arrayUnion, arrayRemove,} from "./utils/utils.js";
 
-
+let uesrId 
 
 const logout_btn = document.getElementById("logout_btn");
 const login_link = document.getElementById("login_link");
@@ -19,6 +19,7 @@ onAuthStateChanged(auth, (user) => {
       console.log('logged in');
       
       const uid = user.uid;
+      uesrId = uid
       login_link.style.display = 'none';
       user_img.style.display = 'inline-block';
       logout_btn.style.display = "block";
@@ -108,7 +109,7 @@ querySnapshot.forEach((doc) => {
 
 async function likeEvent(e){
   console.log(e.innerText);
-  if(auth.currentUser){
+  if(uesrId ){
     e.disabled = true;
     const docRef = doc(db, "events", e.id);
     if(e.innerText == 'Liked..'){
@@ -129,9 +130,9 @@ async function likeEvent(e){
     .catch((err)=> console.log(err));
   }
 }else{
-    window.location.href = "../auth/login/index.html"
+    window.location.href = "/Auth/login/index.html";
   }
-  console.log(auth.currentUser);
+  console.log(uesrId);
 }  
 
 window.viewEvent = viewEvent;

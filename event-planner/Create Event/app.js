@@ -44,7 +44,7 @@ event_form.addEventListener('submit', (e) =>{
             const eventCollection = collection(db, "events")
             addDoc(eventCollection, eventInfo).then(()=>{
              console.log('Document Added');
-             window.location.href = '../utils/index.html';
+             window.location.href = '/';
             });
         });
     });

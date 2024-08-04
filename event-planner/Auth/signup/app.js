@@ -64,7 +64,7 @@ submit_btn.innerText = 'loading...'
             //set this document to db
             setDoc(userDbRef, userInfo).then(() => {
                 console.log("user object updated into Db");
-                window.location.href = "../../utils/index.html";
+                window.location.href = "../../index.html";
                 submit_btn.disabled = false;
                 submit_btn.innerText = "submit";
             });
