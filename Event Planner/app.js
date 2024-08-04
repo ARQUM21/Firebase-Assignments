@@ -101,7 +101,7 @@ querySnapshot.forEach((doc) => {
 });
 
     }catch(err){
-      alert(err);
+      console.log(err);
     }
   }
 

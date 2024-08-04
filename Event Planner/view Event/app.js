@@ -76,7 +76,7 @@ async function displayAllEvents(uid) {
 
   } catch (error) {
     console.error("Error fetching events:", error);
-    alert("Error fetching events. Please try again.");
+    console.log("Error fetching events. Please try again.");
   }
 }
 

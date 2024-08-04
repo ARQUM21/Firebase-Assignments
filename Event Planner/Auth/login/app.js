@@ -18,6 +18,6 @@ login_form.addEventListener('submit', function(e){
 
     signInWithEmailAndPassword(auth, email, password).then(() => {
         location.href='../../index.html';
-    }).catch((err) => alert(err));
+    }).catch((err) => console.log(err));
 
 });

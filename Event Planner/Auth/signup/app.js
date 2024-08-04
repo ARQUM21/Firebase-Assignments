@@ -83,7 +83,7 @@ submit_btn.innerText = 'loading...'
 
     })
     .catch((err) => {
-        alert(err),   (submit_btn.disabled = false);
+        console.log(err),   (submit_btn.disabled = false);
         submit_btn.innerText = "submit"; });
     
     

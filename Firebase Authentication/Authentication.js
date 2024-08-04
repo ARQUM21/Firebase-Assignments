@@ -85,7 +85,7 @@ btn_signup.addEventListener("click", () => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log("error->", errorCode, errorMessage);
-      alert(errorMessage);
+      console.log(errorMessage);
       //..
     });
   });
@@ -105,7 +105,7 @@ login_btn.addEventListener("click", () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert(errorMessage);
+      console.log(errorMessage);
     });
 });
 
