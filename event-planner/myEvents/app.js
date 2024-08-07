@@ -73,7 +73,7 @@ async function getMyEvents(uid) {
       const { banner, title, location, createdByEmail, desc, time, date } =
         events;
 
-      const card = `<div class="bg-white shadow-md  rounded-lg overflow-hiddden">
+      const card = `<div class="bg-white shadow-md rounded-lg overflow-hiddden">
   <img
   src=${banner}
   alt="Event Image"
@@ -81,18 +81,18 @@ async function getMyEvents(uid) {
   />
   <div class="p-4">
     <h2 class="text-xl font-bold mb-2">${title}</h2>
-    <p class="text-gray-600 mb-2">Time: ${date}, ${time}</p>
     <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
+    <p class="text-gray-600 mb-2">Date:${date}</p>
     <p class="text-gray-600 mb-2">location: ${location}</p>
     <div class="flex justify-between items-center">
-      <button  class="bg-blue-500 text-white px-3 py-1 rounded-md  hover:bg-blue-600">${
+      <button  class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">${
         auth?.currentUser && events?.likes?.includes(auth?.currentUser.uid)
           ? "Liked.."
           : "Like"
       }${events?.likes?.length ? events?.likes?.length : ""}</button>
       <button id = ${
         doc.id
-      } onclick="deleteEvent(this)"  class="bg-blue-500 text-white px-3 py-1 rounded-md  hover:bg-blue-600">Delete</button>
+      } onclick="deleteEvent(this)"  class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button>
     </div>
     </div>
     </div>`;

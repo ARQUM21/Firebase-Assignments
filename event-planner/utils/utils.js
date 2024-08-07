@@ -6,7 +6,9 @@ import {
   onAuthStateChanged,  
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut, } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+  signOut,
+  updatePassword ,
+    } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 import { 
   getFirestore, 
   doc, 
@@ -51,11 +53,13 @@ const storage = getStorage(app);
 
 
 export { auth,
+  getAuth,
    db,
   storage, 
   onAuthStateChanged, 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword, 
+  updatePassword ,
   doc, 
   setDoc,
   ref,  

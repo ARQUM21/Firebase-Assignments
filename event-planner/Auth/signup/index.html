@@ -25,22 +25,12 @@
              
              
               <label for="profile_img" class="custom-file-upload">
-                  <img class="img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar">
+                  <img class="img" src="https://i.pinimg.com/736x/25/ee/de/25eedef494e9b4ce02b14990c9b5db2d.jpg" alt="Avatar">
                   <input class="file" type="file" id="profile_img" required/>
               </label>
             
           </div>
-            <!-- <div class="div_img">
-              <label for="profile_img" class="file-label">
-                  <img class="img" id="preview" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bordered avatar">
-              </label>
-              <input class="file" type="file" id="profile_img" accept="image/*" required onchange="previewImage(event)">
-          </div> -->
-            
-            <!-- <div class="div_img">
-              <img class="img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bordered avatar">
-              <input class="file" type="file" id="profile_img"  required >
-            </div> -->
+          
 
             <div class="input-field">
               <input type="text" name="floating_name" id="floating_name"  placeholder="Full Name" required>
@@ -53,12 +43,12 @@
             </div>
 
             <div class="input-field">
-              <input type="password" id="password"   name="floating_password" placeholder="Enter your password" required>
+              <input type="password" id="password"   name="floating_password" placeholder="Enter your password"   required>
               <i class="fa-solid fa-lock icon"></i>
             </div>
          
             <div class="input-field">
-              <input type="text"  name="floating_phone" id="floating_phone"  placeholder="Phone" required />
+              <input type="text"  name="floating_phone" id="floating_phone"  placeholder="Phone" pattern="^03[0-9]{2}-?[0-9]{7}$" required />
               <i class="fa-solid fa-phone  icon"></i>
             </div>
 

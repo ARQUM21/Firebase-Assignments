@@ -11,7 +11,7 @@ const create_event_btn = document.getElementById("create_event_btn");
 // console.log("auth=>", auth);
 // console.log("storage=>", storage);
 // console.log("db=>", db);
-getAllEvents()
+getallEvents()
 onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -53,7 +53,7 @@ onAuthStateChanged(auth, (user) => {
   }
 
 
-async  function getAllEvents(){
+async  function getallEvents(){
     try{
       const querySnapshot = await getDocs(collection(db, "events"));
       events_cards_container.innerHTML = ''
@@ -81,8 +81,8 @@ querySnapshot.forEach((doc) => {
     
 
     <div class="flex justify-between items-center">
-      <button  id = ${doc.id}  onclick="likeEvent(this)" class="bg-blue-500 text-white px-3 py-1 rounded-md  hover:bg-blue-600">${auth?.currentUser  && events?.likes?.includes(auth?.currentUser.uid) ? "Liked.." : "Like"}${events?.likes?.length ? events?.likes?.length: ''}</button>
-      <button id=${doc.id} onclick="viewEvent(this)" class="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600">View Event</button>
+      <button  id = ${doc.id}  onclick="likeEvent(this)"class="items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">${auth?.currentUser  && events?.likes?.includes(auth?.currentUser.uid) ? "Liked.." : "Like"}${events?.likes?.length ? events?.likes?.length: ''}</button>
+      <button id=${doc.id} onclick="viewEvent(this)" class="items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Event</button>
 
     </div>
     </div>
@@ -96,8 +96,7 @@ querySnapshot.forEach((doc) => {
     console.log(events);
 
 
-  // window.viewEvent = viewEvent;
-  // console.log("Event_details_form=>", Event_details_form);
+
 
 });
 

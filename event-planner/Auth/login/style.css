@@ -104,6 +104,17 @@ body {
 .input-field i.icon {
     left: 0;
 }
+.forgot-password {
+    margin-top: 10px; /* Add some space above the link */
+    text-align: right; /* Align the text to the right */
+}
+
+.forgot-password a {
+    color: #4070f4; /* Change to your preferred color */
+    font-size: 14px; /* Adjust font size */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
 
 .submit {
     width: 100%;
@@ -191,6 +202,11 @@ body {
          font-size: 17px; /* Adjust button text size */
     }
 }
+
+
+
+
+
 
 
 

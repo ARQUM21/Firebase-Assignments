@@ -8,45 +8,81 @@ import {
     addDoc,
     auth,
 } from '../utils/utils.js';
-console.log("auth=>",auth);
 
-const event_form = document.getElementById("event_form" );
+console.log("auth=>", auth);
 
-event_form.addEventListener('submit', (e) =>{
+const event_form = document.getElementById("event_form");
+
+event_form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(e);
 
+    // Time validation
+    const hours = document.getElementById('hours').value;
+    const minutes = document.getElementById('minutes').value;
+    const ampm = document.getElementById('ampm').value;
+
+    // Check if time is complete
+    if (!hours || !minutes || !ampm) {
+        alert('Please select a complete time.');
+        return; // Stop the event creation if time is incomplete
+    }
+
+    const day = document.getElementById('day').value;
+    const month = document.getElementById('month').value;
+    const year = document.getElementById('year').value;
+
+    // Check if date is complete
+    if (!day || !month || !year) {
+        alert('Please select a complete date.');
+        return; // Stop the event creation if date is incomplete
+    }
+
+    // Additional validation for event information
+    const banner = e.target[0].files[0]; // Assuming the banner is the first input
+    const title = e.target[1].value;
+    const desc = e.target[2].value;
+    const registration = e.target[3].value;
+    const location = e.target[4].value;
+
+    // Check if all required fields are filled
+    if (!banner || !title || !desc || !registration || !location) {
+        alert('Please fill in all the required fields.');
+        return; // Stop the event creation if any field is incomplete
+    }
+
+    // Prepare event info
     const eventInfo = {
-        banner: e.target[0].files[0],
-        title: e.target[1].value,
-        desc: e.target[2].value,
-        registration: e.target[3].value,
-        location: e.target[4].value,
-        date: e.target[5].value,
-        time: e.target[6].value,
-        createdBy: auth.currentUser.uid,
-        createdByEmail: auth.currentUser.email,
+        banner: banner,
+        title: title,
+        desc: desc,
+        registration: registration,
+        location: location,
+        date: `${day}-${month}-${year}`, // Combined date
+        time: `${hours}:${minutes} ${ampm}`, // Combined time
+        createdBy: auth.currentUser.uid, // User ID
+        createdByEmail: auth.currentUser.email, // User Email
         likes: [],
     };
-    console.log("eventInfo=>",eventInfo);
 
-    const imgRef = ref(storage,eventInfo.banner.name);
-    uploadBytes(imgRef, eventInfo.banner).then(()=>{
+    console.log("eventInfo=>", eventInfo);
+
+    const imgRef = ref(storage, eventInfo.banner.name);
+    uploadBytes(imgRef, eventInfo.banner).then(() => {
         console.log("file uploaded");
 
-        getDownloadURL(imgRef).then((url)=>{
-            console.log("file url=>",url);
+        getDownloadURL(imgRef).then((url) => {
+            console.log("file url=>", url);
             eventInfo.banner = url;
 
-
-            //add document to events collection
-
-            const eventCollection = collection(db, "events")
-            addDoc(eventCollection, eventInfo).then(()=>{
-             console.log('Document Added');
-             window.location.href = '../index.html';
+            // Add document to events collection
+            const eventCollection = collection(db, "events");
+            addDoc(eventCollection, eventInfo).then(() => {
+                console.log('Document Added');
+                // Redirect or notify the user after successful event creation
+                window.location.href = '../index.html';
             });
         });
     });
-    
 });
+
