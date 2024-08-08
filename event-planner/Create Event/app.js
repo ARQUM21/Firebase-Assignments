@@ -16,6 +16,9 @@ const event_form = document.getElementById("event_form");
 event_form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(e);
+    const submitButton = e.target.querySelector('button[type="submit"]'); // Select the submit button
+    submitButton.disabled = true;
+
     // Additional validation for event information
     const banner = e.target[0].files[0]; // Assuming the banner is the first input
     const title = e.target[1].value;
@@ -26,6 +29,7 @@ event_form.addEventListener('submit', (e) => {
     // Check if all required fields are filled
     if (!banner || !title || !desc || !registration || !location) {
         alert('Please fill in all the required fields.');
+        submitButton.disabled = false;
         return; // Stop the event creation if any field is incomplete
     }
 
@@ -37,6 +41,7 @@ event_form.addEventListener('submit', (e) => {
     // Check if date is complete
     if (!day || !month || !year) {
         alert('Please select a complete date.');
+        submitButton.disabled = false;
         return; // Stop the event creation if date is incomplete
     }
 
@@ -49,6 +54,7 @@ event_form.addEventListener('submit', (e) => {
         // Check if time is complete
         if (!hours || !minutes || !ampm) {
             alert('Please select a complete time.');
+            submitButton.disabled = false;
             return; // Stop the event creation if time is incomplete
         }
  // Prepare event info

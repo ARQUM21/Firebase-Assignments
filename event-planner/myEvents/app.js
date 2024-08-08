@@ -92,7 +92,7 @@ async function getMyEvents(uid) {
       }${events?.likes?.length ? events?.likes?.length : ""}</button>
       <button id = ${
         doc.id
-      } onclick="deleteEvent(this)"  class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button>
+      } onclick="deleteEvent(this)"  class="px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
     </div>
     </div>
     </div>`;
