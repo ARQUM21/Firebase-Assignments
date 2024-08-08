@@ -129,7 +129,7 @@ async function likeEvent(e){
     .catch((err)=> console.log(err));
   }
 }else{
-    window.location.href = "../Auth/login/index.html";
+    window.location.href = "../event-planner/Auth/login/index.html";
   }
   console.log(uesrId);
 }  
