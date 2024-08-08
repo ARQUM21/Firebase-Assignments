@@ -16,40 +16,6 @@ const event_form = document.getElementById("event_form");
 event_form.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log(e);
-
-    if (!banner || !title || !desc || !registration || !location) {
-        alert('Please fill in all the required fields.');
-        return; // Stop the event creation if any field is incomplete
-    }
-
-    // Time validation
-    const hours = document.getElementById('hours').value;
-    const minutes = document.getElementById('minutes').value;
-    const ampm = document.getElementById('ampm').value;
-
-    // // Check if time is complete
-    // if (!hours || !minutes || !ampm) {
-    //     alert('Please select a complete time.');
-    //     return; // Stop the event creation if time is incomplete
-    // }
-
-    const day = document.getElementById('day').value;
-    const month = document.getElementById('month').value;
-    const year = document.getElementById('year').value;
-
-    // Check if date is complete
-    if (!day || !month || !year) {
-        alert('Please select a complete date.');
-        return; // Stop the event creation if date is incomplete
-    }
-
-    
-    // Check if time is complete
-    if (!hours || !minutes || !ampm) {
-        alert('Please select a complete time.');
-        return; // Stop the event creation if time is incomplete
-    }
-
     // Additional validation for event information
     const banner = e.target[0].files[0]; // Assuming the banner is the first input
     const title = e.target[1].value;
@@ -57,11 +23,11 @@ event_form.addEventListener('submit', (e) => {
     const registration = e.target[3].value;
     const location = e.target[4].value;
 
-    // // Check if all required fields are filled
-    // if (!banner || !title || !desc || !registration || !location) {
-    //     alert('Please fill in all the required fields.');
-    //     return; // Stop the event creation if any field is incomplete
-    // }
+    // Check if all required fields are filled
+    if (!banner || !title || !desc || !registration || !location) {
+        alert('Please fill in all the required fields.');
+        return; // Stop the event creation if any field is incomplete
+    }
 
     // Prepare event info
     const eventInfo = {
@@ -76,6 +42,32 @@ event_form.addEventListener('submit', (e) => {
         createdByEmail: auth.currentUser.email, // User Email
         likes: [],
     };
+
+    // Time validation
+    const hours = document.getElementById('hours').value;
+    const minutes = document.getElementById('minutes').value;
+    const ampm = document.getElementById('ampm').value;
+
+    // Check if time is complete
+    if (!hours || !minutes || !ampm) {
+        alert('Please select a complete time.');
+        return; // Stop the event creation if time is incomplete
+    }
+
+    const day = document.getElementById('day').value;
+    const month = document.getElementById('month').value;
+    const year = document.getElementById('year').value;
+
+    // Check if date is complete
+    if (!day || !month || !year) {
+        alert('Please select a complete date.');
+        return; // Stop the event creation if date is incomplete
+    }
+
+    
+
+
+
 
     console.log("eventInfo=>", eventInfo);
 
