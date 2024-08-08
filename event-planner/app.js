@@ -63,7 +63,7 @@ querySnapshot.forEach((doc) => {
   const events = doc.data();
   console.log("events=>", events);
 
-  const { banner, title, createdByEmail,  time, date, location,} = events;
+  const { banner, title, createdByEmail, date, location,} = events;
 
   
   const card = `<div  class="bg-white shadow-md  rounded-lg overflow-hiddden">
