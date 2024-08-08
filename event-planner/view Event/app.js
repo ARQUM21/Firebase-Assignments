@@ -86,5 +86,5 @@ displayAllEvents(localStorage.getItem('eventId'));
 
       backevent.addEventListener('click', function(e) {
         e.preventDefault(); 
-        window.location.href = "/event-planner/index.html";
+        window.location.href = "../index.html";
       });
