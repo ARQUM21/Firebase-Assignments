@@ -27,13 +27,15 @@ async function displayAllEvents(uid) {
 
       // Create an HTML structure for each event
       const eventCard = `
-       <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+       <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-2xl">
         <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Event Details</h1>
 
         <!-- Event Image -->
-        <div class="mb-6">
-            <img src="${banner}" alt="Event Image" class="w-full h-64 object-cover rounded-lg shadow-md">
+        <div class="mb-6 flex justify-center">
+           <img src="${banner}" alt="Event Image" style="width: 50%; height: auto; object-fit: contain;" class="rounded-lg shadow-md">
+
         </div>
+
 
         <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
             <h2 class="text-xl font-semibold text-gray-800">Event Title:</h2>

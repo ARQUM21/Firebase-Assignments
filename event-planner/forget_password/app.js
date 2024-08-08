@@ -25,6 +25,7 @@ updatePasswordForm.addEventListener("submit", async (event) => {
 
     // Validate new password confirmation
     if (newPassword !== confirmPassword) {
+        messageDiv.style.color = "red";
         messageDiv.textContent = "New passwords do not match.";
         return;
     }
@@ -36,6 +37,7 @@ updatePasswordForm.addEventListener("submit", async (event) => {
 
         // Update password
         await updatePassword(user, newPassword);
+        messageDiv.style.color = "black";
         messageDiv.textContent = "Password updated successfully!";
 
         // Update the password in Firestore
