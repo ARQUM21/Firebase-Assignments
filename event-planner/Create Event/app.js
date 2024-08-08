@@ -29,30 +29,6 @@ event_form.addEventListener('submit', (e) => {
         return; // Stop the event creation if any field is incomplete
     }
 
-    // Prepare event info
-    const eventInfo = {
-        banner: banner,
-        title: title,
-        desc: desc,
-        registration: registration,
-        location: location,
-        date: `${day}-${month}-${year}`, // Combined date
-        time: `${hours}:${minutes} ${ampm}`, // Combined time
-        createdBy: auth.currentUser.uid, // User ID
-        createdByEmail: auth.currentUser.email, // User Email
-        likes: [],
-    };
-
-    // Time validation
-    const hours = document.getElementById('hours').value;
-    const minutes = document.getElementById('minutes').value;
-    const ampm = document.getElementById('ampm').value;
-
-    // Check if time is complete
-    if (!hours || !minutes || !ampm) {
-        alert('Please select a complete time.');
-        return; // Stop the event creation if time is incomplete
-    }
 
     const day = document.getElementById('day').value;
     const month = document.getElementById('month').value;
@@ -64,6 +40,30 @@ event_form.addEventListener('submit', (e) => {
         return; // Stop the event creation if date is incomplete
     }
 
+
+        // Time validation
+        const hours = document.getElementById('hours').value;
+        const minutes = document.getElementById('minutes').value;
+        const ampm = document.getElementById('ampm').value;
+    
+        // Check if time is complete
+        if (!hours || !minutes || !ampm) {
+            alert('Please select a complete time.');
+            return; // Stop the event creation if time is incomplete
+        }
+ // Prepare event info
+ const eventInfo = {
+    banner: banner,
+    title: title,
+    desc: desc,
+    registration: registration,
+    location: location,
+    date: `${day}-${month}-${year}`, // Combined date
+    time: `${hours}:${minutes} ${ampm}`, // Combined time
+    createdBy: auth.currentUser.uid, // User ID
+    createdByEmail: auth.currentUser.email, // User Email
+    likes: [],
+};
     
 
 
@@ -82,7 +82,7 @@ event_form.addEventListener('submit', (e) => {
             // Add document to events collection
             const eventCollection = collection(db, "events");
             addDoc(eventCollection, eventInfo).then(() => {
-                console.log('Document Added');
+                alert('Event Created');
                 // Redirect or notify the user after successful event creation
                 window.location.href = '../index.html';
             });
