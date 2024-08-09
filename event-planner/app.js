@@ -8,9 +8,7 @@ const user_img = document.getElementById("user_img");
 const events_cards_container = document.getElementById("events_cards_container");
 const myevents_btn = document.getElementById("myevents_btn");
 const create_event_btn = document.getElementById("create_event_btn");
-// console.log("auth=>", auth);
-// console.log("storage=>", storage);
-// console.log("db=>", db);
+
 getallEvents()
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -28,7 +26,7 @@ onAuthStateChanged(auth, (user) => {
       getUserInfo(uid);
       // ...
     } else {
-      //  window.location.href = '../Auth/Login/index.html';
+      
        login_link.style.display = 'inline-block';
       user_img.style.display = 'none';
       logout_btn.style.display = "none";
@@ -57,7 +55,7 @@ async  function getallEvents(){
     try{
       const querySnapshot = await getDocs(collection(db, "events"));
       events_cards_container.innerHTML = ''
-querySnapshot.forEach((doc) => {
+      querySnapshot.forEach((doc) => {
   console.log(`${doc.id} => ${doc.data()}`);
 
   const events = doc.data();
@@ -66,44 +64,32 @@ querySnapshot.forEach((doc) => {
   const { banner, title, createdByEmail, date, location,} = events;
 
   
-  const card = `<div  class="bg-white shadow-md  rounded-lg overflow-hiddden">
-  <img
-  src=${banner}
-  alt="Event Image"
-  class="w-full h-48 object-cover"
-  />
+  const card = `<div  class="bg-white shadow-lg  rounded-lg overflow-hiddden">
+  <img src=${banner} alt="Event Image" class="w-full h-48 object-cover" />
   <div class="p-4">
     <h2 class="text-xl font-bold mb-2">${title}</h2>
      <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
      <p class="text-gray-600 mb-2">Date: ${date}</p>
      <p class="text-gray-600 mb-2">location: ${location}</p>
     
-    
-
     <div class="flex justify-between items-center">
       <button  id = ${doc.id}  onclick="likeEvent(this)"class="items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">${auth?.currentUser  && events?.likes?.includes(auth?.currentUser.uid) ? "Liked.." : "Like"}${events?.likes?.length ? events?.likes?.length: ''}</button>
       <button id=${doc.id} onclick="viewEvent(this)" class="items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Event</button>
 
     </div>
-    </div>
-    </div>`;
+  </div>
+</div>`;
 
-    
-  
-    events_cards_container.innerHTML += card;
-    console.log(events);
-    window.likeEvent = likeEvent;
-    console.log(events);
-
-
-
-
+  events_cards_container.innerHTML += card;
+  console.log(events);
+  window.likeEvent = likeEvent;
+  console.log(events);
 });
 
-    }catch(err){
-      console.log(err);
+  }catch(err){
+    console.log(err);
     }
-  }
+}
 
 
 async function likeEvent(e){
@@ -111,23 +97,23 @@ async function likeEvent(e){
   if(uesrId ){
     e.disabled = true;
     const docRef = doc(db, "events", e.id);
+
     if(e.innerText == 'Liked..'){
       updateDoc(docRef,{
         likes: arrayRemove(auth.currentUser.uid),
        
     }).then(()=> { e.innerText = 'Like';
       e.disabled = false;
-     })
-    .catch((err)=> console.log(err));
+     }).catch((err)=> console.log(err));
       
     }else{
     updateDoc(docRef,{
       likes: arrayUnion(auth.currentUser.uid),
     }).then(()=> {e.innerText ='Liked..';
       e.disabled = false;
-    })
-    .catch((err)=> console.log(err));
+    }).catch((err)=> console.log(err));
   }
+
 }else{
   window.location.href = "../event-planner/Auth/login/index.html";
   }
@@ -135,7 +121,6 @@ async function likeEvent(e){
 }  
 
 window.viewEvent = viewEvent;
-// console.log("Event_details_form=>", Event_details_form);
 async function viewEvent(e){
   console.log("Current User:", auth.currentUser); // Check the current user
 

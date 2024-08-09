@@ -1,8 +1,4 @@
-import{
-    auth,
-    signInWithEmailAndPassword,
-   
-} from '../../utils/utils.js';
+import{auth,signInWithEmailAndPassword,} from '../../utils/utils.js';
 
 
 const login_form = document.getElementById("login_form");

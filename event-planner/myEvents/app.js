@@ -16,12 +16,7 @@ let userId;
 const logout_btn = document.getElementById("logout_btn");
 const login_link = document.getElementById("login_link");
 const user_img = document.getElementById("user_img");
-const events_cards_container = document.getElementById(
-  "events_cards_container"
-);
-// console.log("auth=>", auth);
-// console.log("storage=>", storage);
-// console.log("db=>", db);
+const events_cards_container = document.getElementById("events_cards_container");
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -32,13 +27,10 @@ onAuthStateChanged(auth, (user) => {
     userId = user.uid;
     login_link.style.display = "none";
     user_img.style.display = "inline-block";
-    // console.log('userdid', userId);
     getUserInfo(userId);
-
     getMyEvents(userId);
     // ...
   } else {
-    //  window.location.href = '../Auth/Login/index.html';
     login_link.style.display = "inline-block";
     user_img.style.display = "none";
   }
@@ -47,6 +39,7 @@ onAuthStateChanged(auth, (user) => {
 logout_btn.addEventListener("click", () => {
   signOut(auth);
 });
+
 
 function getUserInfo(uid) {
   const userRef = doc(db, "user", uid);
@@ -70,10 +63,9 @@ async function getMyEvents(uid) {
       const events = doc.data();
       console.log("events=>", events);
 
-      const { banner, title, location, createdByEmail, desc, time, date } =
-        events;
+      const { banner, title, location, createdByEmail,date } = events;
 
-      const card = `<div class="bg-white shadow-md rounded-lg overflow-hiddden">
+      const card = `<div class="bg-white shadow-lg rounded-lg overflow-hiddden">
   <img
   src=${banner}
   alt="Event Image"
@@ -90,9 +82,9 @@ async function getMyEvents(uid) {
           ? "Liked.."
           : "Like"
       }${events?.likes?.length ? events?.likes?.length : ""}</button>
-      <button id = ${
-        doc.id
-      } onclick="deleteEvent(this)"  class="px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
+
+
+      <button id = ${ doc.id} onclick="deleteEvent(this)"  class="px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
     </div>
     </div>
     </div>`;
@@ -114,30 +106,4 @@ async function deleteEvent(e) {
   getMyEvents(userId);
 }
 
-// async function likeEvent(e){
-//   console.log(e.innerText);
-//   if(auth.currentUser){
-//     e.disabled = true;
-//     const docRef = doc(db, "events", e.id);
-//     if(e.innerText == 'Liked..'){
-//       updateDoc(docRef,{
-//         likes: arrayRemove(auth.currentUser.uid),
 
-//     }).then(()=> { e.innerText = 'Like';
-//       e.disabled = false;
-//      })
-//     .catch((err)=> console.log(err));
-
-//     }else{
-//     updateDoc(docRef,{
-//       likes: arrayUnion(auth.currentUser.uid),
-//     }).then(()=> {e.innerText ='Liked..';
-//       e.disabled = false;
-//     })
-//     .catch((err)=> console.log(err));
-//   }
-// }else{
-//     window.location.href = "../auth/login/index.html"
-//   }
-//   console.log(auth.currentUser);
-// }

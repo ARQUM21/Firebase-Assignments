@@ -9,6 +9,7 @@ import {
   signOut,
   updatePassword ,
     } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
 import { 
   getFirestore, 
   doc, 
@@ -24,15 +25,14 @@ import {
   where,
   deleteDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
 import { 
   getStorage, 
   ref,  
   uploadBytes, 
   getDownloadURL,  } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
 
-
-
-  const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBUdDvVMp6mtXYbwZs0gd3SEe5dQGT1G88",
     authDomain: "fir-authentication-692d2.firebaseapp.com",
     databaseURL: "https://fir-authentication-692d2-default-rtdb.firebaseio.com",
@@ -50,7 +50,6 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 // const analytics = getAnalytics(app);
-
 
 export { auth,
   getAuth,

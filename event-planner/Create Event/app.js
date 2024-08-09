@@ -72,10 +72,7 @@ event_form.addEventListener('submit', (e) => {
 };
     
 
-
-
-
-    console.log("eventInfo=>", eventInfo);
+console.log("eventInfo=>", eventInfo);
 
     const imgRef = ref(storage, eventInfo.banner.name);
     uploadBytes(imgRef, eventInfo.banner).then(() => {

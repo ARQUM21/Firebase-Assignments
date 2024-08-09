@@ -28,43 +28,42 @@ async function displayAllEvents(uid) {
       // Create an HTML structure for each event
       const eventCard = `
        <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-2xl">
+        
         <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Event Details</h1>
 
         <!-- Event Image -->
         <div class="mb-6 flex justify-center">
-           <img src="${banner}" alt="Event Image" style="width: 50%; height: auto; object-fit: contain;" class="rounded-lg shadow-md">
-
-        </div>
-
-
-        <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
-            <h2 class="text-xl font-semibold text-gray-800">Event Title:</h2>
-            <p class="text-gray-700">${title}</p>
+          <img src="${banner}" alt="Event Image" style="width: 50%; height: auto; object-fit: contain;" class="rounded-lg shadow-md">
         </div>
 
         <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
-            <h2 class="text-xl font-semibold text-gray-800">Event Description:</h2>
-            <p class="text-gray-700">${desc}</p>
+          <h2 class="text-xl font-semibold text-gray-800">Event Title:</h2>
+          <p class="text-gray-700">${title}</p>
         </div>
 
         <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
-            <h2 class="text-xl font-semibold text-gray-800">Event Location:</h2>
-            <p class="text-gray-700">${location}</p>
+          <h2 class="text-xl font-semibold text-gray-800">Event Description:</h2>
+          <p class="text-gray-700">${desc}</p>
         </div>
 
         <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
-            <h2 class="text-xl font-semibold text-gray-800">Event Date:</h2>
-            <p class="text-gray-700">${date}</p>
+          <h2 class="text-xl font-semibold text-gray-800">Event Location:</h2>
+          <p class="text-gray-700">${location}</p>
         </div>
 
         <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
-            <h2 class="text-xl font-semibold text-gray-800">Event Time:</h2>
-            <p class="text-gray-700">${time}</p>
+          <h2 class="text-xl font-semibold text-gray-800">Event Date:</h2>
+          <p class="text-gray-700">${date}</p>
         </div>
 
         <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
-            <h2 class="text-xl font-semibold text-gray-800">Registration Link:</h2>
-            <a href="${registration}" class="text-blue-500 hover:underline" target="_blank">Register Here</a>
+          <h2 class="text-xl font-semibold text-gray-800">Event Time:</h2>
+          <p class="text-gray-700">${time}</p>
+        </div>
+
+        <div class="mb-4 p-4 border rounded-lg shadow-sm bg-gray-50">
+          <h2 class="text-xl font-semibold text-gray-800">Registration Link:</h2>
+          <a href="${registration}" class="text-blue-500 hover:underline" target="_blank">Register Here</a>
         </div>
 
        
