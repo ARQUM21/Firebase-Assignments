@@ -63,31 +63,32 @@ async function getMyEvents(uid) {
       const events = doc.data();
       console.log("events=>", events);
 
-      const { banner, title, location, createdByEmail,date } = events;
+      const { banner, title, createdByEmail,date, time } = events;
 
-      const card = `<div class="bg-white shadow-lg rounded-lg overflow-hiddden">
-  <img
-  src=${banner}
-  alt="Event Image"
-  class="w-full h-48 object-cover"
-  />
-  <div class="p-4">
-    <h2 class="text-xl font-bold mb-2">${title}</h2>
-    <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
-    <p class="text-gray-600 mb-2">Date:${date}</p>
-    <p class="text-gray-600 mb-2">location: ${location}</p>
-    <div class="flex justify-between items-center">
-      <button  class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">${
-        auth?.currentUser && events?.likes?.includes(auth?.currentUser.uid)
-          ? "Liked.."
-          : "Like"
-      }${events?.likes?.length ? events?.likes?.length : ""}</button>
-
-
-      <button id = ${ doc.id} onclick="deleteEvent(this)"  class="px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
-    </div>
-    </div>
+      const card =`<div class="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img
+        src=${banner}
+        alt="Event Image"
+        class="w-full h-48 object-cover"
+      />
+      <div class="p-4">
+        <h2 class="text-xl font-bold mb-2 line-clamp-2">${title}</h2>
+        <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
+        <p class="text-gray-600 mb-2">Date: ${date}</p>
+        <p class="text-gray-600 mb-2">Time: ${time}</p>
+        
+    
+        <div class="flex justify-between items-center mt-4">
+          <button class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            ${auth?.currentUser && events?.likes?.includes(auth?.currentUser.uid)
+              ? "Liked.."
+              : "Like"}${events?.likes?.length ? events?.likes?.length : ""}
+          </button>
+          <button id=${doc.id} onclick="deleteEvent(this)" class="px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
+        </div>
+      </div>
     </div>`;
+    
 
       window.deleteEvent = deleteEvent;
       events_cards_container.innerHTML += card;

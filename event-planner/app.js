@@ -61,18 +61,18 @@ async  function getallEvents(){
   const events = doc.data();
   console.log("events=>", events);
 
-  const { banner, title, createdByEmail, date, location,} = events;
+  const { banner, title, createdByEmail, date, time,} = events;
 
   
   const card = `<div  class="bg-white shadow-lg  rounded-lg overflow-hiddden">
   <img src=${banner} alt="Event Image" class="w-full h-48 object-cover" />
   <div class="p-4">
-    <h2 class="text-xl font-bold mb-2">${title}</h2>
+    <h2 class="text-xl font-bold mb-2 ">${title}</h2>
      <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
      <p class="text-gray-600 mb-2">Date: ${date}</p>
-     <p class="text-gray-600 mb-2">location: ${location}</p>
+    <p class="text-gray-600 mb-2">Time: ${time}</p>
     
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center mt-4">
       <button  id = ${doc.id}  onclick="likeEvent(this)"class="items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">${auth?.currentUser  && events?.likes?.includes(auth?.currentUser.uid) ? "Liked.." : "Like"}${events?.likes?.length ? events?.likes?.length: ''}</button>
       <button id=${doc.id} onclick="viewEvent(this)" class="items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Event</button>
 
